@@ -49,6 +49,8 @@ group :development, :test do
 
   # multiple processes
   gem "foreman"
+
+  gem "rails_live_reload"
 end
 
 group :development do
