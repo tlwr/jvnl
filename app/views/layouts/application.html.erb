@@ -19,9 +19,21 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="body-container">
+      <header>
+        Jasmijn Vink
+      </header>
+
+      <nav>
+      </nav>
+
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
