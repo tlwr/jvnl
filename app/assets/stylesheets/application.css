@@ -11,19 +11,71 @@
 
 @font-face {
   font-family: 'Berkeley Mono';
-  src: url('BerkeleyMono-Regular.woff2') format('woff2'),
-       url('BerkeleyMono-Oblique.woff2') format('woff2'),
-       url('BerkeleyMono-Light.woff2') format('woff2'),
-       url('BerkeleyMono-Light-Oblique.woff2') format('woff2'),
-       url('BerkeleyMono-Bold.woff2') format('woff2'),
-       url('BerkeleyMono-Bold-Oblique.woff2') format('woff2'),
-       url('BerkeleyMono-Black.woff2') format('woff2'),
-       url('BerkeleyMono-Black-Oblique.woff2') format('woff2');
+  src: url('BerkeleyMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('BerkeleyMono-Oblique.woff2') format('woff2');
+  font-weight: 400;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('BerkeleyMono-Light.woff2') format('woff2');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('BerkeleyMono-Light-Oblique.woff2') format('woff2');
+  font-weight: 300;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('BerkeleyMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('BerkeleyMono-Bold-Oblique.woff2') format('woff2');
+  font-weight: 700;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('BerkeleyMono-Black.woff2') format('woff2');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono';
+  src: url('BerkeleyMono-Black-Oblique.woff2') format('woff2');
+  font-weight: 900;
+  font-style: oblique;
 }
 
 body {
   font-family: 'Berkeley Mono', Helvetica;
 }
+
+header {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
 
 .body-container {
   max-width: 1000px;
