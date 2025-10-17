@@ -1,2 +1,9 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<% if @pictures.empty? %>
+  <p>Er zijn geen beelden</p>
+<% else %>
+  <% @pictures.each do |picture| %>
+    <p><%= picture.inspect %></p>
+  <% end %>
+<% end %>
