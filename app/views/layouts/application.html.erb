@@ -29,6 +29,13 @@
       </header>
 
       <nav>
+        <a href="<%= pictures_path %>">alle beelden</a>
+        <% if current_user %>
+          &vert;
+          <a href="">uploaden</a>
+          &vert;
+          <%= button_to "uitloggen", destroy_user_session_path, method: :delete %>
+        <% end %>
       </nav>
 
       <% if notice || alert %><section>
