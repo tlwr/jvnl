@@ -6,10 +6,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   devise_for :users, controllers: {
-    confirmations: "users/confirmations",
     passwords: "users/passwords",
-    sessions: "users/sessions",
-    unlocks: "users/unlocks"
+    sessions: "users/sessions"
   }
 
   get "/inloggen", to: redirect("/users/sign_in")
