@@ -1,21 +1,14 @@
-<h1 class="text-3xl font-bold mb-8">Home</h1>
-
 <% if @pictures.empty? %>
   <p class="text-gray-600">Er zijn geen beelden</p>
 <% else %>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <% @pictures.each do |picture| %>
-      <figure class="bg-white rounded-lg shadow-md overflow-hidden">
-        <% if picture.image.attached? %>
-          <%= link_to picture_path(picture) do %>
-            <%= image_tag picture.image.variant(resize_to_limit: [400, 300]), class: "w-full h-48 object-cover" %>
-          <% end %>
+  <% @pictures.each do |picture| %>
+    <% if picture.image.attached? %>
+      <div class="mb-8">
+        <%= link_to picture_path(picture) do %>
+          <%= image_tag picture.image.variant(resize_to_limit: [400, 300]), class: "w-full object-cover" %>
         <% end %>
-        <figcaption class="p-4">
-          <h3 class="text-lg font-semibold mb-2"><%= picture.title %></h3>
-          <p class="text-gray-600"><%= picture.description %></p>
-        </figcaption>
-      </figure>
+        <h3 class="text-lg font-semibold"><%= picture.title %></h3>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 <% end %>
