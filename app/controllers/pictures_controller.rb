@@ -2,7 +2,11 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
-    @pictures = Picture.all
+    if user_signed_in?
+      @pictures = Picture.all
+    else
+      @pictures = Picture.where(visible: true)
+    end
   end
 
   def new
@@ -33,6 +37,9 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    if !@picture.visible && !user_signed_in?
+      raise ActiveRecord::RecordNotFound
+    end
   end
 
   def destroy
@@ -44,6 +51,6 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:title, :description, :image)
+    params.require(:picture).permit(:title, :description, :image, :visible)
   end
 end

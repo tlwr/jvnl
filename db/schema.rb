@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_28_131457) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_16_140226) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_28_131457) do
     t.string "cf_r2_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visible", default: true, null: false
   end
 
   create_table "users", force: :cascade do |t|
