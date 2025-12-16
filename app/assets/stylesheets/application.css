@@ -76,8 +76,3 @@ h3 { font-size: 1.6rem; }
 h4 { font-size: 1.4rem; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
-
-.body-container {
-  max-width: 1000px;
-  margin: auto;
-}
