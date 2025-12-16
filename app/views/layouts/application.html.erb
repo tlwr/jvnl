@@ -35,7 +35,7 @@
         <a href="<%= pictures_path %>" class="text-blue-600 hover:text-blue-800">alle beelden</a>
         <% if current_user %>
           <span class="mx-2">|</span>
-          <a href="" class="text-blue-600 hover:text-blue-800">uploaden</a>
+           <%= link_to "uploaden", new_picture_path, class: "text-blue-600 hover:text-blue-800" %>
           <span class="mx-2">|</span>
           <%= form_tag destroy_user_session_path, method: :delete, class: "inline-block" do %>
             <%= button_tag "uitloggen", class: "text-blue-600 hover:text-blue-800 border-none bg-transparent p-0" %>

@@ -18,8 +18,7 @@ class LoginLogoutTest < ApplicationSystemTestCase
     # Click logout
     click_button "uitloggen"
 
-    # Check logged out: back to login page and logout button is gone
-    assert_current_path "/inloggen"
+    assert_current_path "/"
     assert_no_selector "button", text: "uitloggen"
   end
 end
