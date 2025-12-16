@@ -35,3 +35,6 @@
 
 bin/importmap
 vendor/javascript
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
