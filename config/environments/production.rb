@@ -79,7 +79,9 @@ Rails.application.configure do
   # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
 
-
+  # Disable master key requirement and use env for secrets
+  config.require_master_key = false
+  config.credentials.content_path = nil
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   config.hosts = [
