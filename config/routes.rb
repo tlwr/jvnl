@@ -5,14 +5,11 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  devise_for :users, controllers: {
-    passwords: "users/passwords",
+  devise_for :users, path: "", path_names: { sign_in: "inloggen", sign_out: "uitloggen" }, controllers: {
     sessions: "users/sessions"
   }
 
-  get "/inloggen", to: redirect("/users/sign_in")
-
-  resources :pictures, only: [:index, :show, :edit, :update, :destroy]
+  resources :pictures, only: [ :index, :show, :edit, :update, :destroy ]
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
