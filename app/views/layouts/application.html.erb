@@ -31,12 +31,15 @@
 
       <nav class="mb-8">
         <a href="<%= root_path %>" class="text-blue-600 hover:text-blue-800">home</a>
+          <span class="mx-2">|</span>
         <a href="<%= pictures_path %>" class="text-blue-600 hover:text-blue-800">alle beelden</a>
         <% if current_user %>
           <span class="mx-2">|</span>
           <a href="" class="text-blue-600 hover:text-blue-800">uploaden</a>
           <span class="mx-2">|</span>
-          <%= button_to "uitloggen", destroy_user_session_path, method: :delete, class: "text-blue-600 hover:text-blue-800 border-none bg-transparent p-0" %>
+          <%= form_tag destroy_user_session_path, method: :delete, class: "inline-block" do %>
+            <%= button_tag "uitloggen", class: "text-blue-600 hover:text-blue-800 border-none bg-transparent p-0" %>
+          <% end %>
         <% end %>
       </nav>
 
