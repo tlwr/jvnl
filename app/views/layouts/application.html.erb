@@ -30,11 +30,13 @@
         Jasmijn Vink
       </header>
 
-      <nav class="mb-8">
-        <a href="<%= root_path %>" class="text-blue-600 hover:text-blue-800">home</a>
-          <span class="mx-2">|</span>
-        <a href="<%= pictures_path %>" class="text-blue-600 hover:text-blue-800">alle beelden</a>
-        <% if current_user %>
+       <nav class="mb-8">
+         <a href="<%= root_path %>" class="text-blue-600 hover:text-blue-800">home</a>
+           <span class="mx-2">|</span>
+         <a href="<%= pictures_path %>" class="text-blue-600 hover:text-blue-800">alle beelden</a>
+           <span class="mx-2">|</span>
+         <a href="<%= random_path %>" class="text-blue-600 hover:text-blue-800">random</a>
+         <% if current_user %>
           <span class="mx-2">|</span>
            <%= link_to "uploaden", new_picture_path, class: "text-blue-600 hover:text-blue-800" %>
           <span class="mx-2">|</span>
