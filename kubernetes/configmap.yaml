@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jvnl-config
+data:
+  RAILS_ENV: production
+  RAILS_LOG_TO_STDOUT: "true"

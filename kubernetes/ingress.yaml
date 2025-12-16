@@ -1,0 +1,25 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jvnl
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: haproxy
+  rules:
+    - host: jasmijnvink.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jvnl
+                port:
+                  number: 80
+  tls:
+    - secretName: jvnl-tls
+      hosts:
+        - jasmijnvink.com

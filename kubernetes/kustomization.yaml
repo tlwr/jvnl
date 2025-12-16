@@ -1,0 +1,22 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: jasmijn
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - configmap.yaml
+  - sqlite-pvc.yaml
+  - active-storage-pvc.yaml
+  - pdb.yaml
+
+
+images:
+  - name: jvnl
+    newTag: latest
+
+commonLabels:
+  app: jvnl

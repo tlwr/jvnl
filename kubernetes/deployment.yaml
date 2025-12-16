@@ -1,0 +1,78 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jvnl
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: jvnl
+  template:
+    metadata:
+      labels:
+        app: jvnl
+    spec:
+      initContainers:
+        - name: setup
+          image: ghcr.io/tlwr/jvnl:latest
+          imagePullPolicy: Always
+          command: ["/rails/bin/docker-entrypoint"]
+          args: ["bundle", "exec", "rake", "db:migrate"]
+          envFrom:
+            - configMapRef:
+                name: jvnl-config
+            - secretRef:
+                name: jvnl-secret
+          volumeMounts:
+            - name: active-storage
+              mountPath: /pvc/storage
+            - name: sqlite-storage
+              mountPath: /pvc/sqlite
+      containers:
+        - name: jvnl
+          image: ghcr.io/tlwr/jvnl:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: jvnl-config
+            - secretRef:
+                name: jvnl-secret
+          volumeMounts:
+            - name: active-storage
+              mountPath: /pvc/storage
+            - name: sqlite-storage
+              mountPath: /pvc/sqlite
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /up
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /up
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: sqlite-storage
+          persistentVolumeClaim:
+            claimName: sqlite-pvc
+        - name: active-storage
+          persistentVolumeClaim:
+            claimName: active-storage-pvc
