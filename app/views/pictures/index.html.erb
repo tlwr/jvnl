@@ -1,0 +1,9 @@
+<h1>Pictures#index</h1>
+
+<% if @pictures.empty? %>
+  <p>Er zijn geen beelden</p>
+<% else %>
+  <% @pictures.each do |picture| %>
+    <p><%= picture.inspect %></p>
+  <% end %>
+<% end %>
