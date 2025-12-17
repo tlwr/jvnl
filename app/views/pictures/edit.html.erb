@@ -12,6 +12,12 @@
     </div>
   <% end %>
 
+  <% if @picture.image.attached? %>
+    <div class="mb-4">
+      <%= image_tag @picture.image.content_type == "image/svg+xml" ? @picture.image : @picture.image.variant(resize_to_limit: [400, 300]), class: "rounded-lg shadow-md" %>
+    </div>
+  <% end %>
+
   <%= form_with model: @picture, class: "space-y-4" do |f| %>
     <div>
       <%= f.label :title, "Titel", class: "block text-sm font-medium text-gray-700 mb-1" %>
