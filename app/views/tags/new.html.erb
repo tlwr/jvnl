@@ -1,0 +1,27 @@
+<div class="w-full max-w-md">
+  <h2 class="text-2xl font-bold mb-4">Tag aanmaken</h2>
+
+  <% if @tag.errors.any? %>
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+      <h3 class="font-bold">Er zijn fouten opgetreden:</h3>
+      <ul class="list-disc list-inside">
+        <% @tag.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: @tag, class: "space-y-4" do |f| %>
+    <div>
+      <%= f.label :id, "Tag naam", class: "block text-sm font-medium text-gray-700 mb-1" %>
+      <%= f.text_field :id, pattern: "[a-z0-9-]+", title: "Alleen kleine letters, cijfers en streepjes toegestaan", class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    </div>
+
+    <div>
+      <%= f.submit "Aanmaken", class: "w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Terug naar tags', tags_path, class: "text-blue-600 hover:text-blue-800" %>
+</div>

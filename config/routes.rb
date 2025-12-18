@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
+  resources :tags, only: [ :index, :show, :new, :create, :destroy ]
   resources :pictures, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
