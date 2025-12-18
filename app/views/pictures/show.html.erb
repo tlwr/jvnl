@@ -11,7 +11,7 @@
     <% if @picture.tags.any? %>
       <p class="text-gray-600 mb-4">
       <% @picture.tags.each do |tag| %>
-        <%= link_to tag.name, tags_path, class: "text-blue-600 hover:text-blue-800" %>
+        <%= link_to tag.name, tag_path(tag.name), class: "text-blue-600 hover:text-blue-800" %>
         &#8193;
       <% end %>
       </p>
