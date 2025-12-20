@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
   def index
+    p = Picture.order(id: :desc)
     if user_signed_in?
-      @pictures = Picture.limit(3)
+      @pictures = p.limit(3)
     else
-      @pictures = Picture.where(visible: true).limit(3)
+      @pictures = p.where(visible: true).limit(3)
     end
   end
 

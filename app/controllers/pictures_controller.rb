@@ -2,10 +2,12 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
+    p = Picture.order(id: :desc)
+
     if user_signed_in?
-      @pictures = Picture.all
+      @pictures = p.all
     else
-      @pictures = Picture.where(visible: true)
+      @pictures = p.where(visible: true)
     end
   end
 

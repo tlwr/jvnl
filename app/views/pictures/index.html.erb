@@ -7,7 +7,7 @@
     <% if picture.image.attached? %>
       <div class="mb-8">
          <%= link_to picture_path(picture) do %>
-           <%= image_tag picture.image.content_type == "image/svg+xml" ? picture.image : picture.image.variant(resize_to_limit: [1200, 800]), class: "w-full object-cover" %>
+           <%= image_tag picture.image.content_type == "image/svg+xml" ? picture.image : picture.image.variant(resize_to_limit: [1200, 800]), class: "w-full object-cover mb-2" %>
          <% end %>
          <h3 class="text-lg font-semibold"><%= picture.title %></h3>
          <% if user_signed_in? && !picture.visible %>
