@@ -145,7 +145,7 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.8.2)
-    irb (1.15.3)
+    irb (1.16.0)
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
@@ -359,14 +359,15 @@ GEM
       net-ssh (>= 2.8.0)
       ostruct
     stringio (3.1.9)
-    tailwindcss-rails (2.7.9-aarch64-linux)
+    tailwindcss-rails (4.4.0)
       railties (>= 7.0.0)
-    tailwindcss-rails (2.7.9-arm-linux)
-      railties (>= 7.0.0)
-    tailwindcss-rails (2.7.9-arm64-darwin)
-      railties (>= 7.0.0)
-    tailwindcss-rails (2.7.9-x86_64-linux)
-      railties (>= 7.0.0)
+      tailwindcss-ruby (~> 4.0)
+    tailwindcss-ruby (4.1.16)
+    tailwindcss-ruby (4.1.16-aarch64-linux-gnu)
+    tailwindcss-ruby (4.1.16-aarch64-linux-musl)
+    tailwindcss-ruby (4.1.16-arm64-darwin)
+    tailwindcss-ruby (4.1.16-x86_64-linux-gnu)
+    tailwindcss-ruby (4.1.16-x86_64-linux-musl)
     thor (1.4.0)
     thruster (0.1.17)
     thruster (0.1.17-aarch64-linux)
@@ -428,7 +429,7 @@ DEPENDENCIES
   solid_cache
   solid_queue
   sqlite3 (>= 2.1)
-  tailwindcss-rails (~> 2.7)
+  tailwindcss-rails (~> 4.4)
   thruster
   tzinfo-data
   web-console
